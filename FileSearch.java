@@ -35,10 +35,12 @@ public class FileSearch {
          
          if(array!=null&&array.length!=0)
             for(int aa = 0; aa < array.length; aa++){
-               if(array[0].getParent()!=null){
-                  check = (array[aa].getAbsolutePath().substring(array[aa].getAbsolutePath().lastIndexOf("\\")));
-                  check=check.substring(1);
-               }
+               //if(array[0].getParent()!=null){
+              
+               check = (array[aa].getAbsolutePath().substring(array[aa].getAbsolutePath().lastIndexOf("\\")));
+               check=check.substring(1);
+               //}
+               
                if(check!=null){
                   if(check.compareTo(search)==0){
                      desktop.open(array[aa].getAbsoluteFile());
@@ -49,8 +51,9 @@ public class FileSearch {
          if(array!=null&&array.length!=0)
             for(int z = 0; z < array.length; z++){
                System.out.println(array[z].getAbsolutePath());
-               recurs(array[z].listFiles());   
-            }
+               if(!array[z].isHidden()){
+                  recurs(array[z].listFiles());   
+               }}
       }
       catch(IOException e){
          e.printStackTrace();
