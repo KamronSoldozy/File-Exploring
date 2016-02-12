@@ -42,12 +42,13 @@ public class FileSearch {
                if(check!=null){
                   if(check.compareTo(search)==0){
                      desktop.open(array[aa].getAbsoluteFile());
+                     System.out.println("Found at : "+ array[aa].getAbsolutePath());
                      System.exit(0);
                   }}
             }
          if(array!=null&&array.length!=0)
             for(int z = 0; z < array.length; z++){
-            
+               System.out.println(array[z].getAbsolutePath());
                recurs(array[z].listFiles());   
             }
       }
