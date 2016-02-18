@@ -5,46 +5,46 @@ import java.net.URISyntaxException;
 import java.io.*;
 import java.util.*;
 //Created by Kamron Soldozy 
-public class FileSearch {
+public class DateiSuchen {
    public static File a;
    public static File[] b;
-   public static String search;
+   public static String suchen;
     
    public static void main(String[] args) {
       
-      System.out.println("What file are you looking for? (Include Extension name)");
+      System.out.println("Welche Datei suchen Sie? (Fügen Sie Erweiterungsname)");
       Scanner infile = new Scanner(System.in);
-      search = (infile.nextLine());
+      suchen = (infile.nextLine());
       System.out.println("C:\\Users\\Kamron\\Documents");
       System.out.println("C:\\Users\\Kamron\\Downloads");
       System.out.println("C:\\Users\\Kamron\\Desktop");
       System.out.println("C:\\Users\\Kamron\\Desktop\\School");
-      System.out.println("What directory? Either copy and paste from above, or use the same format:");
+      System.out.println("Was Verzeichnis? Entweder kopieren und von oben einfügen, oder das gleiche Format verwenden:");
       
       a = new File(infile.nextLine());
       b = a.listFiles();
       
-      recurs(b);
+      wiederkehren(b);
    
    
    }
-   public static void recurs(File[] array){
+   public static void wiederkehren(File[] array){
       try{
          Desktop desktop = Desktop.getDesktop();
-         String check=null;
+         String prüfen=null;
          
          if(array!=null&&array.length!=0)
             for(int aa = 0; aa < array.length; aa++){
                //if(array[0].getParent()!=null){
               
-               check = (array[aa].getAbsolutePath().substring(array[aa].getAbsolutePath().lastIndexOf("\\")));
-               check=check.substring(1);
+               prüfen = (array[aa].getAbsolutePath().substring(array[aa].getAbsolutePath().lastIndexOf("\\")));
+               prüfen=prüfen.substring(1);
                //}
                
-               if(check!=null){
-                  if(check.compareTo(search)==0){
+               if(prüfen!=null){
+                  if(prüfen.compareTo(suchen)==0){
                      desktop.open(array[aa].getAbsoluteFile());
-                     System.out.println("Found at : "+ array[aa].getAbsolutePath());
+                     System.out.println("Gefunden am : "+ array[aa].getAbsolutePath());
                      System.exit(0);
                   }}
             }
@@ -52,7 +52,7 @@ public class FileSearch {
             for(int z = 0; z < array.length; z++){
                System.out.println(array[z].getAbsolutePath());
                if(!array[z].isHidden()){
-                  recurs(array[z].listFiles());   
+                  wiederkehren(array[z].listFiles());   
                }}
       }
       catch(IOException e){
