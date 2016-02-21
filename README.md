@@ -1,8 +1,8 @@
 # File-Exploring
-A file exploring/search Java application
+A file exploring/search Java application.
 
 ##Installation and Usage
-Clone the repository. Compile using java. Run using java.
+Clone the repository, then compile and run using java.
 
 ##Contributing
-To contribute, write code. Make pull request.
+To contribute, make a pull request.
