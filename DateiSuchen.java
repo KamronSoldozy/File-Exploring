@@ -15,10 +15,15 @@ public class DateiSuchen {
       System.out.println("Welche Datei suchen Sie? (Fügen Sie Erweiterungsname)");
       Scanner infile = new Scanner(System.in);
       suchen = (infile.nextLine());
-      System.out.println("C:\\Users\\Kamron\\Documents");
-      System.out.println("C:\\Users\\Kamron\\Downloads");
-      System.out.println("C:\\Users\\Kamron\\Desktop");
-      System.out.println("C:\\Users\\Kamron\\Desktop\\School");
+      File homeVerzeichnis = new File(System.getProperty("user.home"));
+      File[] heimunterverzeichnisse = homeVerzeichnis.listFiles();
+      for(File f : heimunterverzeichnisse)
+         if(f.isDirectory())
+            System.out.println(f.getPath());
+      // System.out.println("C:\\Users\\Kamron\\Documents");
+      // System.out.println("C:\\Users\\Kamron\\Downloads");
+      // System.out.println("C:\\Users\\Kamron\\Desktop");
+      // System.out.println("C:\\Users\\Kamron\\Desktop\\School");
       System.out.println("Was Verzeichnis? Entweder kopieren und von oben einfügen, oder das gleiche Format verwenden:");
       
       a = new File(infile.nextLine());
